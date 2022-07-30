@@ -9,11 +9,10 @@ import java.util.*;
  * Made WAY better by kristofer 6/16/20
  */
 public class PhoneBook {
-
     private final Map<String, List<String>> phonebook;
 
     public Map<String, List<String>> getPhonebook() {
-        return this.getPhonebook();
+        return this.phonebook;
     }
 
     public PhoneBook(Map<String, List<String>> map) {
@@ -41,33 +40,34 @@ public class PhoneBook {
         this.phonebook.remove(name);
     }
 
-    public Boolean hasEntry(String name, String phoneNumber) {
-        if (this.phonebook.containsKey(name)) {
-            return true;
-        }
-        if (this.phonebook.containsKey(phoneNumber)) {
-            return true;
-        }
-        return false;
+    public Boolean hasEntry(String name) {
+        return this.phonebook.containsKey(name);
     }
 
     public List<String> lookup(String name) {
         return this.phonebook.get(name);
     }
 
-    public String reverseLookup(String phoneNumber)  {
-        String number = null;
-        for (String x : this.phonebook.keySet()) {
-            number = x;
+    public String reverseLookup(String phoneNumber) {
+        String number = "";
+        for (Map.Entry<String, List<String>> entry : phonebook.entrySet()) {
+            number = entry.getKey();
         }
         return number;
     }
 
     public List<String> getAllContactNames() {
-        return new ArrayList<>(this.phonebook.keySet());
+        List<String> number = new ArrayList<>();
+        for (Map.Entry<String, List<String>> entry : phonebook.entrySet()) {
+            number.add(entry.getKey());
+
+        }
+        return number;
     }
 
-    public Map<String, List<String>> getMap() {
-        return this.getMap();
+        public Map<String, List<String>> getMap() {
+            return this.phonebook;
+        }
     }
-}
+
+
