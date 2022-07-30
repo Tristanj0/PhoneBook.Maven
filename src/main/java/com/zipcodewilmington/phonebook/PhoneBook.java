@@ -37,15 +37,15 @@ public class PhoneBook {
     }
 
     public void remove(String name) {
-        this.phonebook.remove(name);
+        phonebook.remove(name);
     }
 
     public Boolean hasEntry(String name) {
-        return this.phonebook.containsKey(name);
+        return phonebook.containsKey(name);
     }
 
     public List<String> lookup(String name) {
-        return this.phonebook.get(name);
+        return phonebook.get(name);
     }
 
     public String reverseLookup(String phoneNumber) {
